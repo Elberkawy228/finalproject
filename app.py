@@ -47,4 +47,11 @@ if st.button("احسب السعر 💰"):
     predicted_log = model.predict(input_df)
     real_price = np.expm1(predicted_log)[0]
     
-    st.success(f"السعر المتوقع: {real_price:.2f} Lakh")
+    price_in_rupees = real_price_lakh * 100000
+    
+    # 2. نحول لدولار (بافتراض الدولار بـ 92 روبية)
+    price_in_usd = price_in_rupees / 92
+    
+    # 3. نطبع السعرين للعميل!
+    st.success(f"السعر المتوقع: {real_price_lakh:.2f} Lakh")
+    st.info(f"🇺🇸 السعر بالدولار: {price_in_usd:,.0f} $ تقريباً")
