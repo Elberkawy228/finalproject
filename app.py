@@ -45,7 +45,7 @@ if st.button("احسب السعر 💰"):
     
     # التوقع (وفك شفرة اللوجارتم اللي عملناها)
     predicted_log = model.predict(input_df)
-    real_price = np.expm1(predicted_log)[0]
+    real_price_lakh = np.expm1(predicted_log)[0]
     
     price_in_rupees = real_price_lakh * 100000
     
