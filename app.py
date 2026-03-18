@@ -40,9 +40,19 @@ if st.button("احسب السعر 💰"):
         input_df[col] = np.log1p(input_df[col]) 
 
     # 3. نحط باقي العواميد بـ صفر
+   # 5. إضافة باقي العواميد وتحديد قيم "متوسطة" بدل الصفر عشان منلبسش في عربية فارهة!
     for col in model_columns:
         if col not in input_df.columns:
-            input_df[col] = 0
+            if col == 'Car_Model':
+                input_df[col] = 18  # رقم بيمثل عربية اقتصادية متوسطة
+            elif col == 'Location':
+                input_df[col] = 5   # مدينة عادية
+            elif col == 'Fuel_Type':
+                input_df[col] = 1   # بنزين عادي
+            elif col == 'Owner_Type':
+                input_df[col] = 2   # مالك تاني أو تالت (عشان تبان متهالكة)
+            else:
+                input_df[col] = 0
             
     # 4. 🚨 الإصلاح الحقيقي: نديها هوية اقتصادية عشان متتسعرش كأنها بورش!
     for col in input_df.columns:
