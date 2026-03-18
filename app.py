@@ -71,6 +71,3 @@ if st.button("احسب السعر 💰"):
     
     st.success(f"السعر المتوقع: {real_price_lakh:.2f} Lakh")
     st.info(f"🇺🇸 السعر بالدولار: {price_in_usd:,.0f} $ تقريباً")
-    # طباعة النتيجة
-    st.success(f"السعر المتوقع: {real_price_lakh:.2f} Lakh")
-    st.info(f"🇺🇸 السعر بالدولار: {price_in_usd:,.0f} $ تقريباً")
