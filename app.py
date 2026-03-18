@@ -63,6 +63,10 @@ if st.button("احسب السعر 💰"):
             
     # 6. الترتيب والتوقع
     input_df = input_df[model_columns]
+    
+    # السطر ده هيعرض الجدول على الموقع عشان نشوف الموديل بيستلم إيه بالظبط
+    st.write("🔍 الداتا اللي الموديل شايفها فعلاً:", input_df)
+    
     predicted_log = model.predict(input_df)
     real_price_lakh = np.expm1(predicted_log)[0]
     
